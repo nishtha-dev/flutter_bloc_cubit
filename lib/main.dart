@@ -45,6 +45,34 @@ class NamesCubit extends Cubit<String?> {
   }
 }
 
+class MyBlocObserver extends BlocObserver {
+  @override
+  void onCreate(BlocBase bloc) {
+    // TODO: implement onCreate
+    super.onCreate(bloc);
+    print('bloc--> ${bloc.runtimeType}');
+  }
+
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    // TODO: implement onChange
+    super.onChange(bloc, change);
+    print('bloc --> ${bloc.runtimeType} $change');
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    print('bloc --> ${bloc.runtimeType} $error $stackTrace');
+    super.onError(bloc, error, stackTrace);
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    print("bloc---> ${bloc.runtimeType}");
+    super.onClose(bloc);
+  }
+}
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
